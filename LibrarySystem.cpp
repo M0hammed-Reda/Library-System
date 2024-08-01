@@ -1,5 +1,4 @@
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
 struct Book {
@@ -45,7 +44,7 @@ struct Library {
         int id;
         string name;
         int quantity;
-        
+
         cout << "Enter Book info: ID & Name & Total quantity: ";
         cin >> id >> name >> quantity;
 
@@ -54,7 +53,7 @@ struct Library {
         books[book_index].quantity = quantity;
         book_index++;
     }
-    
+
 
     void add_user() {
         int id;
@@ -106,7 +105,7 @@ struct Library {
 
         for (int i = 0; i < book_index; i++) {
             if (books[i].name == _book && books[i].quantity == 0) {
-                 cout << "There isn't no book for now!\n";
+                cout << "There isn't no book for now!\n";
                 break;
             }
             else if (books[i].name == _book && books[i].quantity > 0) {
@@ -132,7 +131,7 @@ struct Library {
         for (int i = 0; i < book_index; i++) {
             if (books[i].name == book) {
                 for (int j = 0; j < U_inx; j++) {
-                    if (users_borrowed[i][j] != users_borrowed[i][j+1])
+                    if (users_borrowed[i][j] != users_borrowed[i][j + 1])
                         cout << users_borrowed[i][j] << endl;
                 }
                 break;
@@ -148,11 +147,11 @@ struct Library {
 
         int rb = 0;
         for (; rb < book_index; rb++) {
-             if (books[rb].name == _book) {
+            if (books[rb].name == _book) {
                 B_inx--;
                 books[rb].quantity++;
                 books[rb].borrowed_quantity--;
-             }
+            }
         }
 
         string temp[100][100];
@@ -166,7 +165,7 @@ struct Library {
                 ++inx;
             }
         }
-        
+
         for (int i = 0; i < borrowed_book[B_inx] - 1; ++i) {
             for (int j = 0; j < U_inx; ++j) {
                 users_borrowed[i][j] = temp[i][j];
@@ -192,17 +191,20 @@ struct Library {
 struct LibrarySystem {
 
     void menu() {
-        cout << "\nLibrary menu : \n\n";
-        cout << "1) Add Book.\n";
-        cout << "2) Search Book by predix.\n";
-        cout << "3) Print who borrowed book by name.\n";
-        cout << "4) Print libray by id.\n";
-        cout << "5) Print libray by name.\n";
-        cout << "6) Add User.\n";
-        cout << "7) User borrow book.\n";
-        cout << "8) User retunr book.\n";
-        cout << "9) Print Users.\n";
-        cout << "10) Exit.\n";
+        cout << "\n\n";
+        cout << setw(37) << left << "" << "==============================================\n";
+        cout << setw(37) << left << "" << "\t\tLibrary menu : \n\n";
+        cout << setw(37) << left << "" << "\t\t1) Add Book.\n";
+        cout << setw(37) << left << "" << "\t\t2) Search Book by predix.\n";
+        cout << setw(37) << left << "" << "\t\t3) Print who borrowed book by name.\n";
+        cout << setw(37) << left << "" << "\t\t4) Print libray by id.\n";
+        cout << setw(37) << left << "" << "\t\t5) Print libray by name.\n";
+        cout << setw(37) << left << "" << "\t\t6) Add User.\n";
+        cout << setw(37) << left << "" << "\t\t7) User borrow book.\n";
+        cout << setw(37) << left << "" << "\t\t8) User retunr book.\n";
+        cout << setw(37) << left << "" << "\t\t9) Print Users.\n";
+        cout << setw(37) << left << "" << "\t\t10) Exit.\n";
+        cout << setw(37) << left << "" << "==============================================\n";
     }
 
     void run() {
@@ -212,42 +214,42 @@ struct LibrarySystem {
             int op;
             cout << "\nEnter your menu choice [1 : 10]: ";
             cin >> op;
-            
+
             switch (op) {
-                case 1:
-                    library.add_book();
-                    break;
-                case 2:
-                    library.prefix_search();
-                    break;
-                case 3:
-                    library.print_who_borrowed_book();
-                    break;
-                case 4:
-                    library.print_library_by_id();
-                    break;
-                case 5:
-                    library.sort_library_by_name();
-                    break;
-                case 6:
-                    library.add_user();
-                    break;
-                case 7:
-                    library.borrow_book();
-                    break;
-                case 8:
-                    library.return_book();
-                    break;
-                case 9:
-                    library.print_users();
-                    break;
-                case 10:
-                    exit(0);
-                    break;
-                default:
-                    cout << "Invalid Choice! Try again.\n";
-                    break;
-                    break;
+            case 1:
+                library.add_book();
+                break;
+            case 2:
+                library.prefix_search();
+                break;
+            case 3:
+                library.print_who_borrowed_book();
+                break;
+            case 4:
+                library.print_library_by_id();
+                break;
+            case 5:
+                library.sort_library_by_name();
+                break;
+            case 6:
+                library.add_user();
+                break;
+            case 7:
+                library.borrow_book();
+                break;
+            case 8:
+                library.return_book();
+                break;
+            case 9:
+                library.print_users();
+                break;
+            case 10:
+                exit(0);
+                break;
+            default:
+                cout << "Invalid Choice! Try again.\n";
+                break;
+                break;
             }
         }
     }
