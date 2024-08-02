@@ -63,4 +63,7 @@ This project involves creating a simple console-based library system. The system
 
 - Inspired by classic library systems.
 - Special thanks to Mostafa S. Ibrahim for project guidance and inspiration.
+  
+---
 
+Feel free to contribute to this project by forking the repository and submitting pull requests. For any issues or suggestions, please open an issue in the GitHub repository.
